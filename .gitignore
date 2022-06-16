@@ -1,3 +1,6 @@
+#Config database
+./src/config/index.ts
+
 # Logs
 logs
 *.log

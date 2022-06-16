@@ -1,9 +1,10 @@
 import express from "express";
+import events from "./eventsRouter";
 
-export const routes = (app: express.Application) => {
-  app.route("/").get((req: express.Request, res: express.Response) => {
-    res.status(200).send({ message: "Alô alô" });
-  });
+const routes = (app: express.Application) => {
+  app.route("/").get((req, res) => res.status(200).send({ titulo: "Alô alô" }));
 
-  app.use(express.json());
+  app.use(express.json(), events);
 };
+
+export default routes;

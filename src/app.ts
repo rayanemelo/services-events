@@ -1,6 +1,6 @@
 import express from "express";
 import { db } from "./config/index";
-import { routes } from "./routes/index";
+import routes from "./routes/index";
 
 db.on("error", async () => console.log("Connection Error"));
 db.once("open", async () => {
