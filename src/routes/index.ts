@@ -1,5 +1,9 @@
-import { Router } from "express";
+import express from "express";
 
-export const router = Router();
+export const routes = (app: express.Application) => {
+  app.route("/").get((req: express.Request, res: express.Response) => {
+    res.status(200).send({ message: "Alô alô" });
+  });
 
-router.get("/", (req, res) => res.send("Alo alo"));
+  app.use(express.json());
+};
