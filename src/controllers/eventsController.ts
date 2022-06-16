@@ -33,7 +33,6 @@ class EventsController {
     res: express.Response
   ) => {
     let event = new events(req.body);
-    console.log("req.body: ", req.body);
 
     await event.save((err: Error) => {
       if (err) {
@@ -42,6 +41,20 @@ class EventsController {
         });
       } else {
         res.status(201).send(event.toJSON());
+      }
+    });
+  };
+
+  static updateEvent = (req: express.Request, res: express.Response) => {
+    const id = req.params.id;
+
+    events.findByIdAndUpdate(id, { $set: req.body }, (err: Error) => {
+      if (!err) {
+        res.status(200).send({ message: `Evento atualizado com sucesso.` });
+      } else {
+        res
+          .status(400)
+          .send({ message: `${err.message} - Erro ao atualizar evento.` });
       }
     });
   };
