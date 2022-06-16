@@ -6,7 +6,6 @@
     "lib": ["es2019"],
     "sourceMap": true,
     "outDir": "dist",
-    "rootDir": "./src",
     "strict": true,
     "noImplicitAny": true,
     "strictNullChecks": true,
@@ -22,6 +21,7 @@
     "paths": {
       "@src/*": ["./src/*"]
     },
+    "rootDirs": ["./src"],
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true
   },
