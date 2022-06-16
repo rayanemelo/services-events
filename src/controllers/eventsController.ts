@@ -58,6 +58,20 @@ class EventsController {
       }
     });
   };
+
+  static deleteEvent = (req: express.Request, res: express.Response) => {
+    const id = req.params.id;
+
+    events.findByIdAndDelete(id, (err: Error) => {
+      if (!err) {
+        res.status(200).send({ message: "Evento removido com sucesso!" });
+      } else {
+        res
+          .status(500)
+          .send({ message: `${err.message} - Erro ao deletar evento.` });
+      }
+    });
+  };
 }
 
 export default EventsController;

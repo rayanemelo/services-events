@@ -7,5 +7,6 @@ router
   .get("/events", EventsController.getEvents)
   .get("/event/:id", EventsController.getEvent)
   .post("/register-event", EventsController.registerEvent)
-  .put("/update-event/:id", EventsController.updateEvent);
+  .put("/update-event/:id", EventsController.updateEvent)
+  .delete("/delete-event/:id", EventsController.deleteEvent);
 export default router;
