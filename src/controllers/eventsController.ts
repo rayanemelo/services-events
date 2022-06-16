@@ -14,6 +14,20 @@ class EventsController {
     });
   };
 
+  static getEvent = (req: express.Request, res: express.Response) => {
+    const id = req.params.id;
+
+    events.findById(id, (err: Error, events: any) => {
+      if (err) {
+        res
+          .status(400)
+          .send({ message: `${err.message} - ID do evento não localizado.` });
+      } else {
+        res.status(200).send(events);
+      }
+    });
+  };
+
   static registerEvent = async (
     req: express.Request,
     res: express.Response
